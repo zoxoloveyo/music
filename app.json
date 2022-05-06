@@ -1,0 +1,50 @@
+{
+  "name": "ᴢᴏxᴏʟᴏᴠᴇʏᴏ",
+  "description": "Just for Zakaria .. https://t.me/zoxoangel.",
+  "logo": "https://telegra.ph/file/d43dcf8e5afbbe66476af.jpg",
+  "keywords": [
+    "Telegram",
+    "MusicPlayer",
+    "VideoPlayer"
+  ],
+  "repository": "https://github.com/zoxoloveyo",
+  "env": {
+    "SESSION": {
+      "description": "Session Bor",
+      "required": true
+    },
+    "API_ID": {
+      "description": "APP IP",
+      "required": true
+    },
+    "HNDLR": {
+      "description": "Code ",
+      "required": false,
+      "value": "!"
+    },
+    "API_HASH": {
+      "description": "IP HASH",
+      "required": true
+    },
+    "SUDO_USERS": {
+      "description": "ID YOUR ACCOUNT",
+      "required": true
+    }
+  },
+  "addons": [],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    },
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+    }
+  ],
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "stack": "container"
+}
