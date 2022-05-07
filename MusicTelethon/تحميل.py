@@ -16,9 +16,9 @@ from config import HNDLR
 async def song(client, message: Message):
     urlissed = get_text(message)
     if not urlissed:
-        await client.send_message(            message.chat.id,            "صيغة الأمر غير صالحة!",        )
+        await client.send_message(            message.chat.id,            "ℑ𝔫𝔳𝔞𝔩𝔦𝔡 𝔠𝔬𝔪𝔪𝔞𝔫𝔡 𝔣𝔬𝔯𝔪!",        )
         return
-    pablo = await client.send_message(message.chat.id, f"**🔎 جاري تحميل ** `{urlissed}`")
+    pablo = await client.send_message(message.chat.id, f"**🩸 𝔏𝔬𝔞𝔡𝔦𝔫𝔤** `{urlissed}`")
     search = SearchVideos(f"{urlissed}", offset=1, mode="dict", max_results=1)
     mi = search.result()
     mio = mi["search_result"]
@@ -35,12 +35,12 @@ async def song(client, message: Message):
         with YoutubeDL(opts) as ytdl:
             ytdl_data = ytdl.extract_info(mo, download=True)
     except Exception as e:
-        await pablo.edit(f"**هناك خطأ ** \n**الخطأ هو  :** `{str(e)}`")
+        await pablo.edit(f"**𝔗𝔥𝔢𝔯𝔢 𝔢𝔯𝔯𝔬𝔯 ** \n**𝔱𝔥𝔢 𝔢𝔯𝔯𝔬𝔯 𝔦𝔰  :** `{str(e)}`")
         return
     c_time = time.time()
     capy = f"""
-**🏷️ اسم الاغنيه :** [{thum}]({mo})
-**🎧 طلب من :** {message.from_user.mention}
+**🏷️ 𝔫𝔞𝔪𝔢 𝔬𝔣 𝔱𝔥𝔢 𝔰𝔬𝔫𝔤 :** [{thum}]({mo})
+**🩸  𝔯𝔢𝔮 𝔣𝔯𝔬𝔪 :** {message.from_user.mention}
 """
     file_stark = f"{ytdl_data['id']}.mp3"
     await client.send_audio(        message.chat.id,        audio=open(file_stark, "rb"),        duration=int(ytdl_data["duration"]),        title=str(ytdl_data["title"]),        performer=str(ytdl_data["uploader"]),        thumb=sedlyf,        caption=capy,        progress=progress,        progress_args=(            pablo,            c_time,            f"**📥 تحميل** `{urlissed}`",            file_stark,        ),    )
@@ -159,9 +159,9 @@ def time_to_seconds(time):
 async def vsong(client, message: Message):
     urlissed = get_text(message)
 
-    pablo = await client.send_message(message.chat.id, f"**🔎 يبحث عن** `{urlissed}`")
+    pablo = await client.send_message(message.chat.id, f"**🔎 𝔩𝔬𝔬𝔨𝔦𝔫𝔤 𝔣𝔬𝔯 ** `{urlissed}`")
     if not urlissed:
-        await pablo.edit(            "صيغة الأمر غير صالحة!"        )
+        await pablo.edit(            "ℑ𝔫𝔳𝔞𝔩𝔦𝔡 𝔠𝔬𝔪𝔪𝔞𝔫𝔡 𝔣𝔬𝔯𝔪!"        )
         return
 
     search = SearchVideos(f"{urlissed}", offset=1, mode="dict", max_results=1)
