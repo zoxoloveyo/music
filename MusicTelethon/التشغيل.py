@@ -408,3 +408,41 @@ async def resume(client, m: Message):
     else:
         await m.reply("**❌ 𝔑𝔬𝔱𝔥𝔦𝔫𝔤 𝔦𝔰 𝔠𝔲𝔯𝔯𝔢𝔫𝔱𝔩𝔶 𝔭𝔞𝔲𝔰𝔢𝔡 !**")
 
+@jmthon.ar_cmd(pattern="تغميق(?: |$)(!*)")
+async def _(event):
+    if event.reply_to_msg_id:
+        previous_message = await event.get_reply_message()
+        the_real_message = previous_message.text
+        event.reply_to_msg_id
+        the_real_message = the_real_message.replace("*", "*")
+        the_real_message = the_real_message.replace("_", "_")
+        await event.edit(f"**{the_real_message}**")
+    else:
+        await event.edit("**𝖕𝖑𝖊𝖆𝖘𝖊 𝖗𝖊𝖕𝖑𝖞 𝖙𝖔 𝖙𝖊𝖝𝖙!**")
+
+
+@jmthon.ar_cmd(pattern="نسخ(?: |$)(!*)")
+async def _(event):
+    if event.reply_to_msg_id:
+        previous_message = await event.get_reply_message()
+        the_real_message = previous_message.text
+        event.reply_to_msg_id
+        the_real_message = the_real_message.replace("*", "*")
+        the_real_message = the_real_message.replace("_", "_")
+        await event.edit(f"`{the_real_message}`")
+    else:
+        await event.edit("**𝖕𝖑𝖊𝖆𝖘𝖊 𝖗𝖊𝖕𝖑𝖞 𝖙𝖔 𝖙𝖊𝖝𝖙!**")
+
+
+@jmthon.ar_cmd(pattern="مائل(?: |$)(!*)")
+async def _(event):
+    if event.reply_to_msg_id:
+        previous_message = await event.get_reply_message()
+        the_real_message = previous_message.text
+        event.reply_to_msg_id
+        the_real_message = the_real_message.replace("*", "*")
+        the_real_message = the_real_message.replace("_", "_")
+        await event.edit(f"__{the_real_message}__")
+    else:
+        await event.edit("**𝖕𝖑𝖊𝖆𝖘𝖊 𝖗𝖊𝖕𝖑𝖞 𝖙𝖔 𝖙𝖊𝖝𝖙!**")
+
