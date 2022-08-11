@@ -12,7 +12,7 @@ from pyrogram.types import Message
 from youtubesearchpython import SearchVideos
 from yt_dlp import YoutubeDL
 from config import HNDLR
-@Client.on_message(filters.command(["تحميل", "تنزيل"], prefixes=f"{HNDLR}"))
+@Client.on_message(filters.command(["download", "install"], prefixes=f"{HNDLR}"))
 async def song(client, message: Message):
     urlissed = get_text(message)
     if not urlissed:
@@ -39,8 +39,6 @@ async def song(client, message: Message):
         return
     c_time = time.time()
     capy = f"""
-**🏷️ 𝔫𝔞𝔪𝔢 𝔬𝔣 𝔱𝔥𝔢 𝔰𝔬𝔫𝔤 :** [{thum}]({mo})
-**🩸  𝔯𝔢𝔮 𝔣𝔯𝔬𝔪 :** {message.from_user.mention}
 """
     file_stark = f"{ytdl_data['id']}.mp3"
     await client.send_audio(        message.chat.id,        audio=open(file_stark, "rb"),        duration=int(ytdl_data["duration"]),        title=str(ytdl_data["title"]),        performer=str(ytdl_data["uploader"]),        thumb=sedlyf,        caption=capy,        progress=progress,        progress_args=(            pablo,            c_time,            f"**📥 تحميل** `{urlissed}`",            file_stark,        ),    )
@@ -59,7 +57,7 @@ def get_text(message: Message) -> [None, str]:
     except IndexError:
         return None
 def humanbytes(size):
-    if not size:
+    if not size:=
         return ""
     power = 2 ** 10
     raised_to_pow = 0
@@ -85,7 +83,7 @@ async def progress(current, total, message, start, type_of_ps, file_name=None):
         tmp = progress_str + "{0} of {1}\nETA: {2}".format(            humanbytes(current), humanbytes(total), time_formatter(estimated_total_time)        )
         if file_name:
             try:
-                await message.edit(                    "{}\n**اسم الفايل:** `{}`\n{}".format(type_of_ps, file_name, tmp)                )
+                await message.edit(                    "{}\n**ɴᴀᴍᴇ ᴏꜰ ꜰɪʟᴇ:** `{}`\n{}".format(type_of_ps, file_name, tmp)                )
             except FloodWait as e:
                 await asyncio.sleep(e.x)
             except MessageNotModified:
@@ -155,7 +153,7 @@ is_downloading = False
 def time_to_seconds(time):
     stringt = str(time)
     return sum(int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(":"))))
-@Client.on_message(filters.command(["تنزيل_فيديو", "تحميل_فيديو"], prefixes=f"{HNDLR}"))
+@Client.on_message(filters.command(["install_video", "download_video"], prefixes=f"{HNDLR}"))
 async def vsong(client, message: Message):
     urlissed = get_text(message)
 
@@ -180,13 +178,12 @@ async def vsong(client, message: Message):
         with YoutubeDL(opts) as ytdl:
             ytdl_data = ytdl.extract_info(url, download=True)
     except Exception as e:
-        await event.edit(event, f"**التحميل فشل** \n `{str(e)}`")
+        await event.edit(event, f"**ᴅᴏᴡɴʟᴏᴀᴅ ꜰᴀɪʟᴇᴅ** \n `{str(e)}`")
         return
     c_time = time.time()
     file_stark = f"{ytdl_data['id']}.mp4"
     capy = f"""
-**🏷️ اسم الفيديو :** [{thum}]({mo})
-**🎧 طلب من :** {message.from_user.mention}
+**𝖓𝖆𝖒𝖊 𝖔𝖋 𝖛𝖎𝖉𝖊𝖔 :** [{thum}]({mo})
 """
     await client.send_video(        message.chat.id,        video=open(file_stark, "rb"),        duration=int(ytdl_data["duration"]),        file_name=str(ytdl_data["title"]),        thumb=sedlyf,        caption=capy,        supports_streaming=True,        progress=progress,        progress_args=(            pablo,            c_time,            f"**📥 تحميل** `{urlissed}`",            file_stark,        ),    )
     await pablo.delete()

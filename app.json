@@ -1,6 +1,6 @@
 {
   "name": "ᴢᴏxᴏʟᴏᴠᴇʏᴏ",
-  "description": "Just for Zakaria .. https://t.me/zoxoangel.",
+  "description": "Just for Z O X O .. :)? ",
   "logo": "https://telegra.ph/file/d43dcf8e5afbbe66476af.jpg",
   "keywords": [
     "Telegram",
@@ -10,7 +10,7 @@
   "repository": "https://github.com/zoxoloveyo",
   "env": {
     "SESSION": {
-      "description": "Session Bor",
+      "description": "SessionBor",
       "required": true
     },
     "API_ID": {

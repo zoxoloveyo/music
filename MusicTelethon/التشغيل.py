@@ -67,7 +67,7 @@ async def ytdl(link):
     else:
         return 0, stderr.decode()
 
-@Client.on_message(filters.command(["تشغيل"], prefixes=f"{HNDLR}"))
+@Client.on_message(filters.command(["start"], prefixes=f"{HNDLR}"))
 async def play(client, m: Message):
     replied = m.reply_to_message
     chat_id = m.chat.id
@@ -110,7 +110,7 @@ async def play(client, m: Message):
 
     else:
         if len(m.command) < 2:
-            await m.reply("الرد على ملف صوتي أو إعطاء شيء للبحث")
+            await m.reply("Replay to a file for search ! ")
         else:
             await m.delete()
             huehue = await m.reply("🔎 S𝔢𝔞𝔯𝔠𝔥𝔦𝔫𝔤 𝔡𝔢𝔞𝔯 ")
@@ -164,7 +164,7 @@ async def play(client, m: Message):
                             await huehue.edit(f"`{ep}`")
 
 
-@Client.on_message(filters.command(["تشغيل_فيديو"], prefixes=f"{HNDLR}"))
+@Client.on_message(filters.command(["turn_on"], prefixes=f"{HNDLR}"))
 async def vplay(client, m: Message):
     replied = m.reply_to_message
     chat_id = m.chat.id
@@ -227,7 +227,7 @@ async def vplay(client, m: Message):
 
     else:
         if len(m.command) < 2:
-            await m.reply(                "**الرد على ملف صوتي أو إعطاء شيء للبحث**"            )
+            await m.reply(                "**ʀᴇᴘʟʏ ᴛᴏ ᴀɴ ᴀᴜᴅɪᴏ ꜰɪʟᴇ ᴏʀ ɢɪᴠᴇ ꜱᴏᴍᴇᴛʜɪɴɢ ᴛᴏ ꜱᴇᴀʀᴄʜ**"            )
         else:
             await m.delete()
             huehue = await m.reply("**🔎 S𝔢𝔞𝔯𝔠𝔥𝔦𝔫𝔤 𝔡𝔢𝔞𝔯 ")
@@ -274,7 +274,7 @@ async def vplay(client, m: Message):
                             await huehue.edit(f"`{ep}`")
 
 
-@Client.on_message(filters.command(["اغنيه عشوائية"], prefixes=f"{HNDLR}"))
+@Client.on_message(filters.command(["random_music"], prefixes=f"{HNDLR}"))
 async def playfrom(client, m: Message):
     chat_id = m.chat.id
     if len(m.command) < 2:
@@ -317,7 +317,7 @@ async def playfrom(client, m: Message):
             await hmm.edit(f"**𝔗𝔥𝔢𝔯𝔢 𝔢𝔯𝔯𝔬𝔯 ** \n`{e}`")
 
 
-@Client.on_message(filters.command(["التشغيل التلقائي", "queue"], prefixes=f"{HNDLR}"))
+@Client.on_message(filters.command(["Autoplay", "queue"], prefixes=f"{HNDLR}"))
 async def playlist(client, m: Message):
     chat_id = m.chat.id
     if chat_id in QUEUE:
@@ -326,7 +326,7 @@ async def playlist(client, m: Message):
             await m.delete()
             await m.reply(                f"**🎧 𝔯𝔲𝔫𝔫𝔦𝔫𝔤 𝔫𝔬𝔴 :** \n[{chat_queue[0][0]}]({chat_queue[0][2]}) | `{chat_queue[0][3]}`",                disable_web_page_preview=True,            )
         else:
-            QUE = f"**🎧 تشغيل الان :** \n[{chat_queue[0][0]}]({chat_queue[0][2]}) | `{chat_queue[0][3]}` \n\n**⏯ 𝔚𝔞𝔦𝔱𝔦𝔫𝔤 𝔩𝔦𝔰𝔱 :**"
+            QUE = f"**-=ᴘʟᴀʏ ɴᴏᴡ:** \n[{chat_queue[0][0]}]({chat_queue[0][2]}) | `{chat_queue[0][3]}` \n\n**⏯ 𝔚𝔞𝔦𝔱𝔦𝔫𝔤 𝔩𝔦𝔰𝔱 :**"
             l = len(chat_queue)
             for x in range(1, l):
                 hmm = chat_queue[x][0]
@@ -336,7 +336,7 @@ async def playlist(client, m: Message):
             await m.reply(QUE, disable_web_page_preview=True)
     else:
         await m.reply("**❌ 𝔗𝔥𝔢𝔯𝔢 𝔦𝔰 𝔫𝔬 𝔫𝔢𝔵𝔱 𝔯𝔲𝔫 **")
-@Client.on_message(filters.command(["التالي"], prefixes=f"{HNDLR}"))
+@Client.on_message(filters.command(["next"], prefixes=f"{HNDLR}"))
 @authorized_users_only
 async def skip(client, m: Message):
     await m.delete()
@@ -367,7 +367,7 @@ async def skip(client, m: Message):
             await m.reply(OP)
 
 
-@Client.on_message(filters.command(["انهاء", "ايقاف"], prefixes=f"{HNDLR}"))
+@Client.on_message(filters.command(["ending", "stop"], prefixes=f"{HNDLR}"))
 @authorized_users_only
 async def stop(client, m: Message):
     await m.delete()
@@ -381,7 +381,7 @@ async def stop(client, m: Message):
             await m.reply(f"**𝔗𝔥𝔢𝔯𝔢 𝔢𝔯𝔯𝔬𝔯 ** \n`{e}`")
     else:
         await m.reply("**❌ 𝔗𝔥𝔢𝔯𝔢 𝔦𝔰 𝔫𝔬 𝔴𝔬𝔯𝔨𝔦𝔫𝔤 𝔰𝔬𝔫𝔤  !**")
-@Client.on_message(filters.command(["استئناف"], prefixes=f"{HNDLR}"))
+@Client.on_message(filters.command(["resume"], prefixes=f"{HNDLR}"))
 @authorized_users_only
 async def pause(client, m: Message):
     await m.delete()
@@ -394,7 +394,7 @@ async def pause(client, m: Message):
             await m.reply(f"**𝔗𝔥𝔢𝔯𝔢 𝔢𝔯𝔯𝔬𝔯 ** \n`{e}`")
     else:
         await m.reply("** ❌ 𝔗𝔥𝔢𝔯𝔢 𝔦𝔰 𝔫𝔬 𝔭𝔩𝔞𝔶𝔦𝔫𝔤 𝔰𝔬𝔫𝔤 !**") 
-@Client.on_message(filters.command(["ايقاف_الاستئناف"], prefixes=f"{HNDLR}"))
+@Client.on_message(filters.command(["stop_resume"], prefixes=f"{HNDLR}"))
 @authorized_users_only
 async def resume(client, m: Message):
     await m.delete()
