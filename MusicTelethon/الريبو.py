@@ -18,24 +18,22 @@ async def _human_time_duration(seconds):
     return ", ".join(parts)
 
 
-@Client.on_message(    filters.user(SUDO_USERS) & filters.command(["restart"], prefixes=f"{HNDLR}"))
+@Client.on_message(    filters.user(SUDO_USERS) & filters.command(["ريستارت"], prefixes=f"{HNDLR}"))
 async def restart(client, m: Message):
     await m.delete()
-    loli = await m.reply("１")
-    await loli.edit("２")
-    await loli.edit("３")
-    await loli.edit("４")
-    await loli.edit("５")
-    await loli.edit("６")
-    await loli.edit("７")
-    await loli.edit("８")
-    await loli.edit("９")
-    await loli.edit("１０")
-    await loli.edit("𝖙𝖎𝖒𝖊 𝖙𝖔 𝖉𝖎𝖊")
+    loli = await m.reply("1")
+    await loli.edit("2")
+    await loli.edit("3")
+    await loli.edit("4")
+    await loli.edit("5")
+    await loli.edit("6")
+    await loli.edit("7")
+    await loli.edit("8")
+    await loli.edit("9")
     await loli.edit("**🔥 ℜ𝔢𝔟𝔬𝔬𝔱𝔢𝔡 **")
     os.execl(sys.executable, sys.executable, *sys.argv)
     quit()
-@Client.on_message(filters.command(["command"], prefixes=f"{HNDLR}"))
+@Client.on_message(filters.command(["الأوامر"], prefixes=f"{HNDLR}"))
 async def help(client, m: Message):
     await m.delete()
     HELP = f"""
@@ -44,25 +42,30 @@ async def help(client, m: Message):
 ᴢᴏxᴏʟᴏᴠᴇʏᴏ 🌚🔥
 ——————×—————
 
-🕷 -| ꜰᴏʀ ᴘʟᴀʏ ꜱᴏᴜɴᴅ ɪɴ ᴛʜᴇ ᴄᴀʟʟ   [ `{HNDLR}turn_on + ɴᴀᴍᴇ ᴏꜰ ᴍᴜꜱɪᴄ` ]
-🕷 -| ꜰᴏʀ ᴘʟᴀʏ ᴠɪᴅᴇᴏ ɪɴ ᴛʜᴇ ᴄᴀʟʟ   [ `{HNDLR}play_video + ɴᴀᴍᴇ ᴏꜰ ᴠɪᴅᴇᴏ` ]
+🕷 -| لتشغيل صوتية في المكالمة أرسل ⇦ [ `{HNDLR}تشغيل  + اسم الاغنية` ]
+🕷 -| لتشغيل فيديو في المكالمة  ⇦ [ `{HNDLR}تشغيل_فيديو  + اسم الاغنية` ]
 ———————×———————
 
-🕷 -| ᴘᴀᴜꜱᴇ ᴛʜᴇ ꜱᴏɴɢ ᴏʀ ᴠɪᴅᴇᴏ   [ `{HNDLR}resume` ] 
-🕷 -| ᴛᴏ ʀᴇᴘʟᴀʏ ᴛʜᴇ ꜱᴏɴɢ  [ `{HNDLR}stop_resume` ]
-🕷 -| ᴛᴏ ꜱᴛᴏᴘ ꜱᴏᴜɴᴅ [ `{HNDLR}stop , ending` ] 
+🕷 -| لأيقاف الاغنية او الفيديو مؤقتآ  ⇦ [ `{HNDLR}استئناف` ] 
+🕷 -| لأعاده تشغيل الاغنية ⇦  [ `{HNDLR}ايقاف_الاستئناف` ]
+🕷 -| لأيقاف الاغنية  ⇦ [ `{HNDLR}ايقاف` ] 
 ———————×———————
 
-🕷 -| ꜰᴏʀ ᴅᴏᴡɴʟᴏᴀᴅ ꜱᴏᴜɴᴅ  [ `{HNDLR}download , install + ɴᴀᴍᴇ ᴏꜰ ᴍᴜꜱɪᴄ ᴏʀ ʟɪɴᴋ` ]
-🕷 -| ꜰᴏʀ ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏ  [ `{HNDLR}download_video , install_video + ɴᴀᴍᴇ ᴏꜰ ᴠɪᴅᴇᴏ ᴏʀ ʟɪɴᴋ` ]
+🕷 -| لتحميل صوتية أرسل ⇦ [ `{HNDLR}تحميل + اسم الاغنية او الرابط` ]
+🕷 -| لتحميل فيديو  ⇦  [ `{HNDLR}تحميل_فيديو + اسم الاغنية او الرابط` ]
 ———————×———————
-🕷 - Z O X O :)
+
+🕷 -| لأعاده تشغيل التنصيب أرسل ⇦  [ `{HNDLR}ريستارت` ]
+———————×———————
+🛠 -| ZoxoLoveyo
+⭐ -| @ZOXOANGEL"""
     await m.reply(HELP)
-@Client.on_message(filters.command(["repo"], prefixes=f"{HNDLR}"))
+@Client.on_message(filters.command(["الريبو"], prefixes=f"{HNDLR}"))
 async def repo(client, m: Message):
     await m.delete()
     REPO = f"""
 <b>𝔥𝔢𝔶 .!{m.from_user.mention}!
 -; 𝔅𝔢 𝔴𝔥𝔬 𝔶𝔬𝔲 𝔞𝔯𝔢, 𝔞𝔫𝔡 𝔡𝔬𝔫'𝔱 𝔟𝔢 𝔴𝔥𝔬 𝔱𝔥𝔢 𝔦𝔡𝔦𝔬𝔱𝔰 𝔴𝔞𝔫𝔱 ..
+⚔️  | @ZOXOANGEL
 """
     await m.reply(REPO, disable_web_page_preview=True)
